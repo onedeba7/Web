@@ -5,7 +5,7 @@
 
 repository:
   # The name of the repository. Changing this will rename the repository
-  name: my-repo-name
+  name: Web
 
   # A short description of the repository that will show up on GitHub
   description: "A short, clear description of your project."
