@@ -1,14 +1,20 @@
-name: Update Repo Description
+name: Update repository description
+
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
-  update:
+  update-description:
     runs-on: ubuntu-latest
     steps:
-      - name: Update description with gh
+      - name: Update repo description
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh repo edit ${{ github.repository }} \
-            --description "Your new description here"
+          gh api \
+            -X PATCH \
+            /repos/${{ github.repository }} \
+            -f description='My new repository description'
