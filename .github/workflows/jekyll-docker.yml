@@ -1,2 +1,13 @@
-- name: Update Repository Description
-  uses: zhengbangbo/update-repository-description@v1.0.0
+on: [push]
+
+jobs:
+  updateDescription:
+    runs-on: ubuntu-latest
+    name: debug
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Read package.json step and patch repository
+        uses: onedeba7/update-repository-description@v1.0.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN}}
